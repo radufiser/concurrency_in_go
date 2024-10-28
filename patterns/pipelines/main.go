@@ -46,6 +46,7 @@ func repeatFn(done <-chan interface{}, fn func() interface{}) <-chan interface{}
 
 	go func() {
 		defer close(valueStream)
+		defer fmt.Println("repeatFn exited")
 		for {
 			select {
 			case <-done:
